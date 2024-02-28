@@ -3,7 +3,6 @@ import { useContext, useState } from 'react';
 import styles from './styles.module.scss';
 import { UserContext } from '@/context/user-provider';
 import { Modal } from '../modal-login-form/component';
-// import { CartButtonContainer } from '../cart-button/container';
 import { Button } from '../button/component';
 
 export const User = () => {
@@ -25,8 +24,7 @@ export const User = () => {
 
     return (
 
-        <div className={styles.user}>
-
+        <>
             {isAuthenticated ? (
                 <div>
                     <span style={{ marginRight: "10px" }}>name: {name}</span>
@@ -39,7 +37,6 @@ export const User = () => {
                     <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
                 </>
             )}
-            {/* <CartButtonContainer></CartButtonContainer> */}
-        </div>
+        </>
     );
 };
