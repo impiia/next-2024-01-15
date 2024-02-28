@@ -1,0 +1,28 @@
+.root {
+    min-width: 30px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #87d3b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+}
+
+.root:hover {
+    background-color: rgb(97, 187, 159);
+}
+
+.root:disabled {
+    background-color: #cfcfcf;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.link {
+    text-decoration: none;
+    transition: opacity 0.1s;
+
+    &:hover {
+        opacity: 0.5;
+    }
+}
