@@ -1,3 +1,4 @@
+
 export async function getRestaurants() {
   const response = await fetch('http://localhost:3001/api/restaurants');
   return await response.json();
@@ -13,10 +14,7 @@ export async function getDishesByRestaurantId(restaurantId) {
   return await response.json();
 }
 
-export async function getReviewsByRestaurantId(restaurantId) {
-  const response = await fetch(`http://localhost:3001/api/reviews?restaurantId=${restaurantId}`);
-  return await response.json();
-}
+
 
 export async function getUser() {
   const response = await fetch(`http://localhost:3001/api/users`);
@@ -30,8 +28,11 @@ export async function getUserById(userId) {
   return user;
 }
 
+export async function getReviewsByRestaurantId(restaurantId) {
+  const response = await fetch(`http://localhost:3001/api/reviews?restaurantId=${restaurantId}`);
+  return await response.json();
+}
 export async function createReview(restaurantId, newReview) {
-  console.log(newReview);
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
