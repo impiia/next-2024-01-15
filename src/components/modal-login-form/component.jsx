@@ -33,7 +33,7 @@ export const Modal = ({ isOpen, onClose }) => {
   const { name, email } = state;
 
   const handleOkClick = () => {
-    updateUser({ name, email });
+    updateUser({ name, email, id: "a304959a-76c0-4b34-954a-b38dbf310360"  });
     onClose();
   };
 

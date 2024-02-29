@@ -30,3 +30,20 @@ export async function getUserById(userId) {
   return user;
 }
 
+export async function createReview(restaurantId, newReview) {
+  console.log(newReview);
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newReview)
+  };
+
+  const response = await fetch(`http://localhost:3001/api/review/${restaurantId}`, requestOptions);
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  return await response.json();
+};
+
+
+

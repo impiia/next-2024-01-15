@@ -1,6 +1,7 @@
+import { CreateReviewFormContainer } from "../create-review-form/container";
 import { ReviewContainer } from "../review/container";
 
-export const Reviews = ({ reviews }) => {
+export const Reviews = ({ reviews, restaurantId }) => {
 
     return (
         <>
@@ -14,6 +15,7 @@ export const Reviews = ({ reviews }) => {
                     );
                 })}
             </ul>
+            <CreateReviewFormContainer restaurantId={restaurantId} />
         </>
     );
 };

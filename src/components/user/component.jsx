@@ -26,11 +26,11 @@ export const User = () => {
 
         <>
             {isAuthenticated ? (
-                <div>
+                <>
                     <span style={{ marginRight: "10px" }}>name: {name}</span>
                     <span style={{ marginRight: "10px" }}>e-mail: {email}</span>
                     <Button className={styles.button} onClick={handleLogoutClick} >Logout</Button>
-                </div>
+                </>
             ) : (
                 <>
                     <Button className={styles.button} onClick={handleLoginClick} >Login</Button>

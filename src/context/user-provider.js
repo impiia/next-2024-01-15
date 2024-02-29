@@ -6,7 +6,7 @@ export const UserContext = React.createContext();
 
 export const UserProvider = ({ children }) => {
 
-    const [user, setUser] = useState({ name: "", email: "" });
+    const [user, setUser] = useState({ name: "", email: "", id:"" });
 
     const updateUser = (newUser) => {
         setUser(newUser); 

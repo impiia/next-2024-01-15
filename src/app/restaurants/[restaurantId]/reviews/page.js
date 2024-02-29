@@ -5,6 +5,6 @@ export default async function ReviewPage({params}) {
     const restaurantId = params.restaurantId;
     const reviews = await getReviewsByRestaurantId(restaurantId);
     return (
-      <Reviews reviews={reviews}/>
+      <Reviews reviews={reviews} restaurantId={restaurantId}/>
     )
   }

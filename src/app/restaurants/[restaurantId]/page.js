@@ -1,5 +1,5 @@
 
-export default function RestaurantPage({ params }) {
+export default function RestaurantPage() {
     return (
       null
     )
