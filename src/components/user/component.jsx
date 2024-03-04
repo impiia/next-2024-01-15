@@ -29,6 +29,7 @@ export const User = () => {
                 <>
                     <span style={{ marginRight: "10px" }}>name: {name}</span>
                     <span style={{ marginRight: "10px" }}>e-mail: {email}</span>
+                    <span style={{ marginRight: "10px" }}>id: {id}</span>
                     <Button className={styles.button} onClick={handleLogoutClick} >Logout</Button>
                 </>
             ) : (
