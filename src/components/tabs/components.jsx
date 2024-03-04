@@ -2,7 +2,7 @@
 'use client'
 import Link from 'next/link';
 import styles from './styles.module.scss';
-import { Button } from '../button/component';
+import { ButtonMemoized } from '../button/component';
 import { usePathname } from 'next/navigation'
 
 export const Tabs = ({ restaurants }) => {
@@ -16,7 +16,7 @@ export const Tabs = ({ restaurants }) => {
                 return (
                     <Link href={`/restaurants/${restaurant.id}`} key={restaurant.id} passHref
                         className={styles.pageLink}>
-                            <Button disabled={isActive}>{restaurant.name}</Button>
+                            <ButtonMemoized disabled={isActive}>{restaurant.name}</ButtonMemoized>
                     </Link>
                 );
             })}

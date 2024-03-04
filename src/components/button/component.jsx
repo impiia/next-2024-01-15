@@ -1,4 +1,4 @@
-"use client";
+import { memo } from 'react';
 import styles from './styles.module.scss';
 import classNames from "classnames";
 
@@ -9,3 +9,5 @@ export const Button = ({ onClick, children, className, disabled, rootRef }) => {
         </button>
     );
 };
+
+export const ButtonMemoized = memo(Button);

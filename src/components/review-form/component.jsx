@@ -8,6 +8,7 @@ import { Loader } from "../loader/component";
 export const ReviewForm = ({ initialState, onClose, onSave, userName, userId }) => {
     const { form, setText, setRating } = useReviewForm(initialState, userId);
     const [isLoading, setIsLoading] = useState(false);
+
     const handleSave = () => {
         setIsLoading(true);
         onSave(form).then(() => {
@@ -16,6 +17,7 @@ export const ReviewForm = ({ initialState, onClose, onSave, userName, userId }) 
             setIsLoading(false);
             console.error("Error:", error);
         });
+        onClose(form);
     };
 
     return (

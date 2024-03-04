@@ -1,6 +1,6 @@
 "use client" ;
 import Link from 'next/link';
-import { Button } from '../button/component';
+import { ButtonMemoized } from '../button/component';
 import styles from './styles.module.scss';
 import { usePathname } from 'next/navigation';
 
@@ -12,11 +12,11 @@ export const ControlTabs = ({ restaurantId }) => {
     return (
         <div>
             <Link href={`/restaurants/${restaurantId}/menu`} className={styles.pageLink}>
-                <Button disabled={isActiveMenu}>Menu</Button>
+                <ButtonMemoized disabled={isActiveMenu}>Menu</ButtonMemoized>
             </Link>
 
             <Link href={`/restaurants/${restaurantId}/reviews`} className={styles.pageLink}>
-                <Button disabled={isActiveReview}>Review</Button>
+                <ButtonMemoized disabled={isActiveReview}>Review</ButtonMemoized>
             </Link>
         </div>
     );
