@@ -1,8 +1,8 @@
-'use client'
+"use client" ;
 import Link from 'next/link';
 import { Button } from '../button/component';
 import styles from './styles.module.scss';
-import { usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation';
 
 export const ControlTabs = ({ restaurantId }) => {
     const pathname = usePathname();
@@ -10,12 +10,10 @@ export const ControlTabs = ({ restaurantId }) => {
     const isActiveReview = pathname.endsWith("/reviews");
 
     return (
-        <div >
-        
+        <div>
             <Link href={`/restaurants/${restaurantId}/menu`} className={styles.pageLink}>
                 <Button disabled={isActiveMenu}>Menu</Button>
             </Link>
-
 
             <Link href={`/restaurants/${restaurantId}/reviews`} className={styles.pageLink}>
                 <Button disabled={isActiveReview}>Review</Button>

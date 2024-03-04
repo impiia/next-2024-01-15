@@ -1,6 +1,9 @@
+import { redirect } from 'next/navigation';
 
-export default function RestaurantPage() {
-    return (
-      null
-    )
-  }
+const RestaurantPage = ({params}) => {
+  console.log(params.restaurantId+'/menu');
+  redirect(params.restaurantId+'/menu');
+
+};
+
+export default RestaurantPage;
