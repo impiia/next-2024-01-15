@@ -59,7 +59,6 @@ export const Modal = ({ isOpen, onClose }) => {
       <>
         <div onClick={onClose} className={styles.overlay} />
         <div className={styles.root}>
-          <div className={styles.modal}>
             <div className={styles.field}>
               <label htmlFor="name" >
                 Имя:
@@ -92,7 +91,6 @@ export const Modal = ({ isOpen, onClose }) => {
               <ButtonMemoized className={styles.button} onClick={handleCancelClick}>Cansel</ButtonMemoized>
               <ButtonMemoized className={styles.button} onClick={handleOkClick}>Ok</ButtonMemoized>
             </div>
-          </div>
         </div>
       </>,
       modalContainer.current)
