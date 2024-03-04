@@ -56,6 +56,11 @@ export async function updateReview(review) {
   revalidateTag('reviews');
 };
 
+export async function getDishById(dishId) {
+  const response = await fetch(`http://localhost:3001/api/dish/${dishId}`);
+  return await response.json();;
+};
+
 
 
 
