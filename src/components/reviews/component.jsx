@@ -1,6 +1,7 @@
+import { CreateReviewFormContainer } from "../create-review-form/container";
 import { ReviewContainer } from "../review/container";
 
-export const Reviews = ({ reviews }) => {
+export const Reviews =  ({ reviews, onSave, onUpdate }) => {
 
     return (
         <>
@@ -9,11 +10,12 @@ export const Reviews = ({ reviews }) => {
                 {reviews?.map((review) => {
                     return (
                         <li key={review.id}>
-                            <ReviewContainer review={review} />
+                            <ReviewContainer review={review} onUpdate={onUpdate} />
                         </li>
                     );
                 })}
             </ul>
+            <CreateReviewFormContainer onSave={onSave} />
         </>
     );
 };

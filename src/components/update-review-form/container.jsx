@@ -1,38 +1,15 @@
 
-import { Loader } from "../loader/component";
 import { ReviewForm } from "../review-form/component"
 
-export const UpdateReviewFormContainer = ({ review, user, onUpdatedFinishet, onClose }) => {
-    // const [updateReview, { isLoading, isSuccess }] = useUpdateReviewMutation();
-    // useEffect(() => {
-    //     if (isSuccess) {
-    //         onUpdatedFinishet();
-    //     }
-    // }, [isSuccess, onUpdatedFinishet]);
-
-    // if (!user || !review) {
-    //     return null;
-    // }
-
-    // if (isLoading) {
-    //     return <Loader />;
-    // }
+export const UpdateReviewFormContainer = ({ review, user, onClose, onUpdate }) => {
     const { id, text, rating } = review;
-
     return (
         <ReviewForm
-            initialState={{ text, rating }}
+            initialState={{ id, text, rating }}
             userName={user?.name}
-            // onSave={updatedReview => updateReview({
-            //     reviewId: id,
-            //     review: {
-            //         ...updatedReview,
-            //         userId: user.id,
-            //         id,
-            //     }
-            // })} 
-
-            onClose={onClose}    
-            />
+            userId={user?.id}
+            onSave={onUpdate}
+            onClose={onClose}
+        />
     );
 }

@@ -1,8 +1,9 @@
-import { useContext, useEffect, useReducer, useRef } from 'react';
+import { useCallback, useContext, useEffect, useReducer, useRef } from 'react';
 import styles from './styles.module.scss';
 import { createPortal } from 'react-dom';
-import { Button } from '../button/component';
+import { ButtonMemoized } from '../button/component';
 import { UserContext } from '@/context/user-provider';
+import classNames from 'classnames';
 
 
 const reducer = (state, action) => {
@@ -32,22 +33,22 @@ export const Modal = ({ isOpen, onClose }) => {
 
   const { name, email } = state;
 
+  const handleCancelClick = useCallback(() => {
+    onClose();
+  }, [onClose]);
+
   const handleOkClick = () => {
-    updateUser({ name, email });
+    updateUser({ name, email, id: "a304959a-76c0-4b34-954a-b38dbf310360" });
     onClose();
   };
 
-  const handleCancelClick = () => {
-    onClose();
-  };
-
-  const handleNameChange = (event) => {
+  const handleNameChange = useCallback((event) => {
     dispatch({ type: 'change_name', payload: event.target.value });
-  };
+  }, [dispatch]);
 
-  const handleEmailChange = (event) => {
+  const handleEmailChange = useCallback((event) => {
     dispatch({ type: 'change_email', payload: event.target.value });
-  };
+  }, [dispatch]);
 
   if (!isOpen) {
     return null;
@@ -58,7 +59,6 @@ export const Modal = ({ isOpen, onClose }) => {
       <>
         <div onClick={onClose} className={styles.overlay} />
         <div className={styles.root}>
-          <form className={styles.modal}>
             <div className={styles.field}>
               <label htmlFor="name" >
                 Имя:
@@ -88,10 +88,9 @@ export const Modal = ({ isOpen, onClose }) => {
               </label>
             </div>
             <div className={styles.buttons}>
-              <Button className={styles.button} onClick={handleCancelClick}>Отмена</Button>
-              <Button className={styles.button} onClick={handleOkClick}>Ок</Button>
+              <ButtonMemoized className={styles.button} onClick={handleCancelClick}>Cansel</ButtonMemoized>
+              <ButtonMemoized className={styles.button} onClick={handleOkClick}>Ok</ButtonMemoized>
             </div>
-          </form>
         </div>
       </>,
       modalContainer.current)

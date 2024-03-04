@@ -1,10 +1,11 @@
 
 "use client"; 
 import { decrement, increment, selectProductAmountById } from '@/redux/ui/cart';
-import { Button } from '../button/component';
+import { ButtonMemoized } from '../button/component';
 import { Dish } from './component';
 import styles from './styles.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
+import { useCallback } from 'react';
 
 export const DishContainer = ({ dish, className }) => {
     const amount = useSelector((state) =>
@@ -12,24 +13,22 @@ export const DishContainer = ({ dish, className }) => {
     );
     const dispatch = useDispatch();
 
-    const handleDecrement = () => {
+    const handleDecrement = useCallback(() => {
         dispatch(decrement(dish.id));
-    };
+    }, [dispatch, dish.id]);
 
-    const handleIncrement = () => {
+    const handleIncrement = useCallback(() => {
         dispatch(increment(dish.id));
-    };
+    }, [dispatch, dish.id]);
 
     return (
 
         <div className={styles.root}>
-            {/* <NavLink className={styles.link} to={`/dish/${dish.id}`}> */}
                 <Dish dish={dish} className={className} />
-            {/* </NavLink> */}
             <div className={styles.buttonContainer}>
-                <Button className={styles.button} onClick={handleDecrement} disabled={amount === 0}>-</Button>
+                <ButtonMemoized className={styles.button} onClick={handleDecrement} disabled={amount === 0}>-</ButtonMemoized>
                 <p>{amount}</p>
-                <Button className={styles.button} onClick={handleIncrement} disabled={amount === 5}>+</Button>
+                <ButtonMemoized className={styles.button} onClick={handleIncrement} disabled={amount === 5}>+</ButtonMemoized>
             </div>
         </div>
     );
